@@ -37,14 +37,8 @@ function renderUsers(users){
     
     renderUsers.users = users
 
-    userList.innerHTML = `
-    <li class="channel active" onclick="choose(this)" data_id="0">
-        <a href="#">
-            <svg viewbox="0 0 24 24" focusable="false" style="pointer-events: none; display: block; width: 30px; height: 30px;"><g><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8" class="style-scope yt-icon"></path></g></svg>
-            <span>Home</span>
-        </a>
-    </li>
-    `
+    userList.innerHTML = ""
+    
 
     for (const user of users) {
         let [ li ] = createElements("li")
@@ -122,7 +116,7 @@ voice.onresult = event => {
 
             if (user.userId == video.userId) {
 
-                if (video.name.includes(micRes)) {
+                if (video.name.toLowerCase().includes(micRes)) {
                     let [ li, option ] = createElements("li", "option")
                     option.value = video.name
                     li.classList.add("iframe")
@@ -202,8 +196,6 @@ searchBtn.onclick = () => {
 
 function choose(nimadir) {
     let Id = nimadir.dataset.id
-    // nimadir.classList.add("active")
-    // console.log(nimadir.value);
     
    
     if (Id == undefined) {
