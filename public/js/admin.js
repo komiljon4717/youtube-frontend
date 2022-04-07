@@ -24,6 +24,11 @@ async function renderData() {
         headers: {token: window.localStorage.getItem('token')}
     })
     response = await response.json()
+    if (response.status == 401) {
+        window.localStorage.removeItem('token')
+        window.location = './login.html'
+        return
+    }
     videos = response.result
 
     render(videos)
