@@ -281,5 +281,5 @@ function choose(nimadir) {
 
 setInterval(() => {
     getData();
-}, 500);
+}, 1000);
 

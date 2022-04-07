@@ -1,9 +1,9 @@
-const backendApi = 'http://localhost:5000'
+const backendApi = 'https://youtube-backend001.herokuapp.com'
 
 async function request(route, method, body = null) {
     try {
         let headers = {token: window.localStorage.getItem('token')}
-        
+
 		if(!(body instanceof FormData) && method != 'GET') {
 			headers['Content-Type'] = 'application/json'
 			body = JSON.stringify(body || null)
