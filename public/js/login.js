@@ -9,8 +9,6 @@ submitButton.onclick = async (event) => {
     event.preventDefault();
     let username = usernameInput.value.trim()
     let password = passwordInput.value.trim()
-    console.log(username);
-    console.log(password);
 
     let response = await request('/login', 'POST', {
         username,
